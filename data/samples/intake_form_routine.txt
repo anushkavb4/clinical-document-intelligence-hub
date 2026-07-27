@@ -1,0 +1,57 @@
+*** SYNTHETIC RECORD -- NOT A REAL PATIENT ***
+
+WESTFIELD FAMILY PRACTICE
+NEW PATIENT INTAKE FORM  (completed at front desk, 05/02/2026)
+
+Patient name ......... Amara J. Villanueva
+Date of birth ........ 09/22/1991          Age .... 34
+Sex .................. Female
+Patient ID ........... WF-2026-00817
+Preferred contact .... mobile (on file)
+
+Reason for today's visit
+  "Recurring headaches, 2-3 per week for about four months. Usually behind my
+   right eye. Sometimes I feel sick with them. Over the counter stuff helps a
+   bit but not always."
+
+Vital signs (taken by MA, 09:12)
+  Height 5'5"    Weight 141 lb    BMI 23.5
+  Temperature ......... 98.4 F
+  Blood pressure ...... 122/78
+  Pulse ............... 72
+  Respirations ........ 16
+  O2 saturation ....... 99% (room air)
+  Patient alert and oriented.
+
+Current medications
+  1. Ibuprofen 400 mg -- as needed for headache, roughly 3x/week
+  2. Combined oral contraceptive (patient unsure of brand name -- "the pink
+     packet") -- daily
+  3. Vitamin D 1000 IU -- daily
+
+Allergies
+  [X] Sulfa drugs -- "hives"
+  [ ] Latex
+  [ ] Other: ______________
+
+Past medical history
+  [X] Migraine (diagnosed age 19, "went away for years")
+  [ ] Diabetes   [ ] Hypertension   [ ] Asthma   [ ] Heart disease
+  [X] Anxiety -- managed without medication
+
+Family history
+  Mother: migraine. Father: hypertension, type 2 diabetes.
+  Maternal grandmother: stroke at 71.
+
+Social
+  Non-smoker. Alcohol ~4 units/week. Works as a graphic designer, reports
+  "a lot of screen time and bad sleep since January."
+
+Screening questions
+  Any weakness, numbness, or vision loss?  ...... No
+  Worst headache of your life / sudden onset? ... No
+  Headache worse lying flat or on waking? ....... "Sometimes on waking"
+  Fever, neck stiffness, rash? .................. No
+  Pregnant or trying to conceive? ............... No
+
+Form reviewed by: (blank -- not yet signed by clinician)

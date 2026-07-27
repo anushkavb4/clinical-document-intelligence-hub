@@ -1,0 +1,67 @@
+RIVERBEND COMMUNITY HOSPITAL
+Department of Internal Medicine
+DISCHARGE SUMMARY  --  *** SYNTHETIC RECORD, NOT A REAL PATIENT ***
+
+Patient:  Marion Elsworth Okafor
+MRN:      RB-4471902
+DOB:      14 Mar 1958 (Age 68)
+Sex:      F
+Admitted: 03/11/2026      Discharged: 09/11/2026
+Attending: Dr. P. Nandakumar, MD
+
+REASON FOR ADMISSION
+Presented to ED via ambulance with three days of productive cough, rigors and
+increasing breathlessness. Family reported she had become "vague and muddled"
+on the morning of admission, which is new for her.
+
+HOSPITAL COURSE
+Chest radiograph on admission showed right lower lobe consolidation. Blood
+cultures drawn prior to first antibiotic dose grew Streptococcus pneumoniae
+(2/2 bottles). Treated as community-acquired pneumonia with sepsis. Started on
+IV ceftriaxone 2 g daily plus azithromycin 500 mg daily; escalated to HDU for
+36 hours for fluid resuscitation and 4 L/min oxygen via nasal cannula.
+
+Clinically improved from day 3. Weaned to room air on day 5. Switched to oral
+amoxicillin-clavulanate 875/125 mg twice daily on day 5 to complete a 7-day
+total course. Confusion resolved fully by day 4; she was oriented to person,
+place and time at discharge.
+
+DISCHARGE OBSERVATIONS (09/11/2026, 08:15)
+Temp 37.4 C   HR 88   RR 18   BP 118/74   SpO2 96% on room air
+Patient alert and oriented x3. Ambulating independently.
+
+DISCHARGE DIAGNOSES
+1. Community-acquired pneumonia, right lower lobe -- resolving
+2. Sepsis secondary to (1) -- resolved
+3. Type 2 diabetes mellitus -- ongoing, stable
+4. Hypertension -- ongoing, stable
+
+LABORATORY (09/11/2026)
+  WBC            9.8   x10^9/L   (4.0-11.0)     Normal
+  CRP            41    mg/L      (<5)           High
+  Creatinine     94    umol/L    (45-90)        High
+  Sodium         138   mmol/L    (135-145)      Normal
+  Potassium      4.1   mmol/L    (3.5-5.0)      Normal
+  Haemoglobin    11.9  g/dL      (12.0-15.5)    Low
+  HbA1c          7.8   %         (<7.0)         High
+
+Note: admission CRP was 288 mg/L and WBC 19.4; both trending down appropriately.
+
+DISCHARGE MEDICATIONS
+  Amoxicillin-clavulanate 875/125 mg  PO  BD   -- complete 2 further days
+  Metformin              1000 mg      PO  BD   -- ongoing, for T2DM
+  Ramipril               5 mg         PO  OD   -- ongoing, for hypertension
+  Atorvastatin           20 mg        PO  nocte -- ongoing
+
+ALLERGIES
+  Penicillin -- documented as "rash in childhood" only. Tolerated ceftriaxone
+  and amoxicillin-clavulanate without incident this admission. Allergy status
+  requires formal review; see follow-up.
+
+FOLLOW-UP
+- GP review within 7 days for repeat CRP and renal function.
+- Repeat chest radiograph in 6 weeks to confirm radiological resolution.
+- Refer to allergy clinic to formally de-label or confirm penicillin allergy.
+- Diabetes nurse review re: HbA1c 7.8%.
+
+Dictated by Dr. P. Nandakumar. Countersigned electronically 09/11/2026 14:02.
