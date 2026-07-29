@@ -5,58 +5,58 @@
       "name": {
         "value": "Desmond O. Achterberg",
         "confidence": "high",
-        "source_quote": "Patient .............. Desmond O. Achterberg"
+        "source_quote": "Desmond O. Achterberg"
       },
       "age": {
-        "value": "69 y",
+        "value": "69",
         "confidence": "high",
-        "source_quote": "DOB / Age / Sex ...... 14-Mar-1957   /   69 y   /   Male"
+        "source_quote": "69 y"
       },
       "sex": {
         "value": "Male",
         "confidence": "high",
-        "source_quote": "DOB / Age / Sex ...... 14-Mar-1957   /   69 y   /   Male"
+        "source_quote": "Male"
       },
       "mrn": {
-        "value": "MP-4471902 / RH-0099314",
+        "value": "RH-0099314",
         "confidence": "high",
-        "source_quote": "Patient ID / MRN ..... MP-4471902 / RH-0099314"
+        "source_quote": "RH-0099314"
       }
     },
     "encounter_date": {
       "value": "18-Feb-2026",
       "confidence": "high",
-      "source_quote": "Sample collected ..... 18-Feb-2026  09:12"
+      "source_quote": "18-Feb-2026"
     },
     "chief_complaint": {
-      "value": "Increasingly tired over 2 weeks.",
+      "value": "CKD stage 4, review bloods. Increasingly tired over 2 weeks.",
       "confidence": "high",
-      "source_quote": "Increasingly tired over 2 weeks."
+      "source_quote": "CKD stage 4, review bloods. On ramipril and spironolactone. Increasingly tired over 2 weeks."
     },
     "diagnoses": [
       {
-        "description": "CKD stage 4 (progressive)",
+        "description": "CKD stage 4",
         "status": "active",
         "confidence": "high",
-        "source_quote": "CKD stage 4, review bloods."
+        "source_quote": "CKD stage 4"
       },
       {
         "description": "Severe hyperkalaemia",
         "status": "active",
         "confidence": "high",
-        "source_quote": "1. Severe hyperkalaemia."
+        "source_quote": "Severe hyperkalaemia"
       },
       {
         "description": "Normocytic anaemia",
         "status": "active",
         "confidence": "high",
-        "source_quote": "3. Normocytic anaemia, likely of chronic kidney disease."
+        "source_quote": "Normocytic anaemia"
       },
       {
         "description": "Metabolic acidosis",
         "status": "active",
         "confidence": "high",
-        "source_quote": "4. Metabolic acidosis (bicarbonate 17 mmol/L)."
+        "source_quote": "Metabolic acidosis (bicarbonate 17 mmol/L)"
       }
     ],
     "medications": [
@@ -65,18 +65,18 @@
         "dose": "not documented",
         "frequency": "not documented",
         "route": "not documented",
-        "indication": "not documented",
-        "confidence": "high",
-        "source_quote": "On ramipril and spironolactone."
+        "indication": "CKD stage 4",
+        "confidence": "medium",
+        "source_quote": "On ramipril and spironolactone"
       },
       {
         "name": "spironolactone",
         "dose": "not documented",
         "frequency": "not documented",
         "route": "not documented",
-        "indication": "not documented",
-        "confidence": "high",
-        "source_quote": "On ramipril and spironolactone."
+        "indication": "CKD stage 4",
+        "confidence": "medium",
+        "source_quote": "On ramipril and spironolactone"
       }
     ],
     "allergies": [
@@ -91,7 +91,7 @@
       "spo2_percent": "not documented",
       "on_supplemental_oxygen": "unknown",
       "consciousness": "unknown",
-      "source_quote": "No vital signs accompany this specimen."
+      "source_quote": ""
     },
     "labs": [
       {
@@ -101,7 +101,7 @@
         "reference_range": "135 - 145",
         "flag": "low",
         "confidence": "high",
-        "source_quote": "Sodium                  134         L        mmol/L       135 - 145"
+        "source_quote": "Sodium 134 L"
       },
       {
         "name": "Potassium",
@@ -110,16 +110,7 @@
         "reference_range": "3.5 - 5.3",
         "flag": "critical",
         "confidence": "high",
-        "source_quote": "Potassium               6.8         CH***    mmol/L       3.5 - 5.3"
-      },
-      {
-        "name": "Chloride",
-        "value": "104",
-        "unit": "mmol/L",
-        "reference_range": "98 - 107",
-        "flag": "normal",
-        "confidence": "high",
-        "source_quote": "Chloride                104                  mmol/L       98 - 107"
+        "source_quote": "Potassium 6.8 CH***"
       },
       {
         "name": "Bicarbonate",
@@ -128,7 +119,7 @@
         "reference_range": "22 - 29",
         "flag": "low",
         "confidence": "high",
-        "source_quote": "Bicarbonate             17          L        mmol/L       22 - 29"
+        "source_quote": "Bicarbonate 17 L"
       },
       {
         "name": "Urea",
@@ -137,7 +128,7 @@
         "reference_range": "2.5 - 7.8",
         "flag": "high",
         "confidence": "high",
-        "source_quote": "Urea                    24.6        H        mmol/L       2.5 - 7.8"
+        "source_quote": "Urea 24.6 H"
       },
       {
         "name": "Creatinine",
@@ -146,16 +137,16 @@
         "reference_range": "60 - 110",
         "flag": "high",
         "confidence": "high",
-        "source_quote": "Creatinine              298         H        umol/L       60 - 110"
+        "source_quote": "Creatinine 298 H"
       },
       {
         "name": "eGFR (CKD-EPI)",
         "value": "17",
         "unit": "mL/min/1.73",
         "reference_range": ">= 90",
-        "flag": "low",
+        "flag": "unknown",
         "confidence": "high",
-        "source_quote": "eGFR (CKD-EPI)          17                   mL/min/1.73  >= 90"
+        "source_quote": "eGFR (CKD-EPI) 17"
       },
       {
         "name": "Adjusted calcium",
@@ -164,7 +155,7 @@
         "reference_range": "2.20 - 2.60",
         "flag": "low",
         "confidence": "high",
-        "source_quote": "Adjusted calcium        2.19        L        mmol/L       2.20 - 2.60"
+        "source_quote": "Adjusted calcium 2.19 L"
       },
       {
         "name": "Phosphate",
@@ -173,7 +164,7 @@
         "reference_range": "0.80 - 1.50",
         "flag": "high",
         "confidence": "high",
-        "source_quote": "Phosphate               1.94        H        mmol/L       0.80 - 1.50"
+        "source_quote": "Phosphate 1.94 H"
       },
       {
         "name": "Albumin",
@@ -182,7 +173,7 @@
         "reference_range": "35 - 50",
         "flag": "low",
         "confidence": "high",
-        "source_quote": "Albumin                 34          L        g/L          35 - 50"
+        "source_quote": "Albumin 34 L"
       },
       {
         "name": "Haemoglobin",
@@ -191,49 +182,22 @@
         "reference_range": "13.0 - 17.0",
         "flag": "low",
         "confidence": "high",
-        "source_quote": "Haemoglobin             9.4         L        g/dL         13.0 - 17.0"
-      },
-      {
-        "name": "White cell count",
-        "value": "7.1",
-        "unit": "x10^9/L",
-        "reference_range": "4.0 - 11.0",
-        "flag": "normal",
-        "confidence": "high",
-        "source_quote": "White cell count        7.1                  x10^9/L      4.0 - 11.0"
-      },
-      {
-        "name": "Platelets",
-        "value": "211",
-        "unit": "x10^9/L",
-        "reference_range": "150 - 410",
-        "flag": "normal",
-        "confidence": "high",
-        "source_quote": "Platelets               211                  x10^9/L      150 - 410"
-      },
-      {
-        "name": "MCV",
-        "value": "89.2",
-        "unit": "fL",
-        "reference_range": "83 - 101",
-        "flag": "normal",
-        "confidence": "high",
-        "source_quote": "MCV                     89.2                 fL           83 - 101"
+        "source_quote": "Haemoglobin 9.4 L"
       }
     ],
-    "summary": "Desmond O. Achterberg, a 69-year-old male with stage 4 CKD taking ramipril and spironolactone, underwent outpatient blood sampling following 2 weeks of increasing fatigue. Laboratory evaluation demonstrated critical hyperkalaemia (6.8 mmol/L), telephoned to the clinic, with normal haemolysis index confirming true hyperkalaemia. Worsening renal function is evident (eGFR 17 mL/min/1.73, down from 23; creatinine 298 umol/L; urea 24.6 mmol/L) accompanied by metabolic acidosis (bicarbonate 17 mmol/L) and normocytic anaemia (haemoglobin 9.4 g/dL). Urgent clinical assessment and ECG evaluation are required.",
-    "clinical_reasoning": "The principal critical finding is severe hyperkalaemia (potassium 6.8 mmol/L), which carries a direct risk of life-threatening cardiac dysrhythmias. The laboratory confirmed that the sample was non-haemolysed, confirming true elevation. This hyperkalaemia is occurring in the setting of concurrent renin-angiotensin-aldosterone system inhibition and potassium-sparing diuretics (ramipril and spironolactone) alongside significant disease progression (eGFR decline from 23 to 17 mL/min/1.73 since December 2025; elevated creatinine of 298 umol/L and urea of 24.6 mmol/L). Associated chronic kidney disease complications include metabolic acidosis (bicarbonate 17 mmol/L), normocytic anaemia (haemoglobin 9.4 g/dL), mild hypocalcaemia (2.19 mmol/L), and hyperphosphatemia (1.94 mmol/L).",
+    "summary": "Mr. Achterberg is a 69-year-old male with known stage 4 CKD presenting with worsening fatigue. Laboratory results demonstrate critical hyperkalaemia (6.8 mmol/L), worsening renal function with an eGFR drop to 17 mL/min/1.73, and metabolic acidosis. The patient is currently on ramipril and spironolactone, which require urgent review.",
+    "clinical_reasoning": "The combination of severe hyperkalaemia (6.8 mmol/L) and declining renal function (eGFR 17) in a patient on RAAS-inhibitor therapy is highly concerning for life-threatening cardiac arrhythmia. The laboratory specifically noted that haemolysis was ruled out, confirming the result is genuine. The reported fatigue is consistent with the metabolic abnormalities (acidosis, anaemia, and renal failure).",
     "recommended_next_steps": [
-      "Perform an urgent 12-lead ECG to evaluate for hyperkalaemic cardiotoxicity (e.g., tall peaked T waves, PR prolongation, QRS widening).",
-      "Perform urgent clinical assessment and initiate acute hyperkalaemia management protocols as clinically indicated.",
-      "Urgent clinician review and potential withholding/discontinuation of ramipril and spironolactone.",
-      "Obtain a repeat blood sample for potassium and venous blood gas as advised by pathology.",
-      "Evaluate and manage worsening renal function, metabolic acidosis, and anaemia of CKD."
+      "Perform immediate ECG to evaluate for hyperkalaemic changes.",
+      "Urgent clinical assessment and review of potassium-sparing medications (ramipril, spironolactone).",
+      "Repeat blood specimen as advised by pathology.",
+      "Monitor serum electrolytes and cardiac rhythm."
     ],
     "missing_critical_info": [
-      "Patient allergy history (not supplied on request form)",
-      "Patient vital signs and cardiac rhythm assessment (ECG)",
-      "Medication doses, frequencies, and administration timing for ramipril and spironolactone"
+      "Current vital signs (HR, BP, respiratory rate).",
+      "Documented allergy history.",
+      "Current physical examination findings.",
+      "Presence/absence of cardiac symptoms (palpitations, chest pain, syncope)."
     ]
   },
   "triage": {

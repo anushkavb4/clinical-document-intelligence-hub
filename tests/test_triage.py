@@ -160,9 +160,20 @@ class TestCriticalFlags:
         assert result.news2_total == 0
         assert any("Lactate" in f for f in result.critical_flags)
 
-    def test_absent_allergy_history_is_flagged(self):
-        result = score(_record(_vitals(), allergies=[]))
+    def test_unasked_allergy_history_is_flagged(self):
+        """The literal marker means nobody asked. That is a gap worth raising."""
+        result = score(_record(_vitals(), allergies=["not documented"]))
         assert any("allergy" in f.lower() for f in result.critical_flags)
+
+    def test_confirmed_absence_of_allergies_is_not_flagged(self):
+        """An empty list means the document records no allergies - per the schema,
+        that is an answer, not a gap. Flagging it is a false alarm."""
+        result = score(_record(_vitals(), allergies=[]))
+        assert not any("allergy" in f.lower() for f in result.critical_flags)
+
+    def test_a_recorded_allergy_is_not_flagged_as_missing(self):
+        result = score(_record(_vitals(), allergies=["Penicillin"]))
+        assert not any("allergy" in f.lower() for f in result.critical_flags)
 
     def test_low_confidence_medication_is_flagged_for_verification(self):
         meds = [

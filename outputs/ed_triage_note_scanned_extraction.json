@@ -3,7 +3,7 @@
     "document_type": "triage_note",
     "patient": {
       "name": {
-        "value": "T. Bergstrom (Theo)",
+        "value": "T. Bergstrom",
         "confidence": "high",
         "source_quote": "Pt: T. Bergstrom (Theo)"
       },
@@ -13,7 +13,7 @@
         "source_quote": "74 yrs"
       },
       "sex": {
-        "value": "male",
+        "value": "M",
         "confidence": "high",
         "source_quote": "M"
       },
@@ -24,22 +24,16 @@
       }
     },
     "encounter_date": {
-      "value": "22-Jan-2026 02:47",
+      "value": "22-Jan-2026",
       "confidence": "high",
-      "source_quote": "Date/Time: 22-Jan-2026 02:47"
+      "source_quote": "22-Jan-2026"
     },
     "chief_complaint": {
-      "value": "Not himself since yesterday afternoon. Son reports reduced oral intake for ~2 days, then found father slumped in chair this evening, difficult to rouse, speech slurred and confused.",
+      "value": "Reduced oral intake for ~2 days, found slurred speech and confused.",
       "confidence": "high",
-      "source_quote": "\"Not himself since yesterday afternoon.\" Son reports reduced oral intake for ~2 days, then found father slumped in chair this evening, difficult to rouse, speech slurred and confused."
+      "source_quote": "reduced oral intake for ~2 days, then found father slumped in chair this evening, difficult to rouse, speech slurred and confused."
     },
     "diagnoses": [
-      {
-        "description": "Query urosepsis",
-        "status": "suspected",
-        "confidence": "high",
-        "source_quote": "Query urosepsis. Sepsis screen positive."
-      },
       {
         "description": "Chronic kidney disease stage 3b",
         "status": "active",
@@ -50,7 +44,7 @@
         "description": "Atrial fibrillation",
         "status": "active",
         "confidence": "high",
-        "source_quote": "Atrial fibrillation, on anticoagulation"
+        "source_quote": "Atrial fibrillation"
       },
       {
         "description": "Prostate cancer",
@@ -63,6 +57,12 @@
         "status": "active",
         "confidence": "high",
         "source_quote": "Recurrent UTIs -- three in the last eight months"
+      },
+      {
+        "description": "Urosepsis",
+        "status": "suspected",
+        "confidence": "high",
+        "source_quote": "Query urosepsis."
       }
     ],
     "medications": [
@@ -70,59 +70,41 @@
         "name": "Apixaban",
         "dose": "5 mg",
         "frequency": "BD",
-        "route": "oral",
-        "indication": "Atrial fibrillation",
+        "route": "not documented",
+        "indication": "not documented",
         "confidence": "high",
-        "source_quote": "Apixaban 5 mg BD"
+        "source_quote": "Apixaban   5 mg   BD"
       },
       {
         "name": "Bisoprolol",
         "dose": "2.5 mg",
         "frequency": "OD",
-        "route": "oral",
+        "route": "not documented",
         "indication": "not documented",
         "confidence": "high",
-        "source_quote": "Bisoprolol 2.5 mg OD"
+        "source_quote": "Bisoprolol 2.5 mg   OD"
       },
       {
         "name": "Furosemide",
         "dose": "40 mg",
         "frequency": "OD",
-        "route": "oral",
+        "route": "not documented",
         "indication": "not documented",
         "confidence": "high",
-        "source_quote": "Furosemide 40 mg OD"
+        "source_quote": "Furosemide 40 mg   OD"
       },
       {
         "name": "Tamsulosin",
         "dose": "400 mcg",
         "frequency": "OD",
-        "route": "oral",
-        "indication": "Prostate ca / urinary symptoms",
+        "route": "not documented",
+        "indication": "not documented",
         "confidence": "high",
         "source_quote": "Tamsulosin 400 mcg OD"
-      },
-      {
-        "name": "co-amoxiclav",
-        "dose": "1.2 g",
-        "frequency": "stat",
-        "route": "IV",
-        "indication": "Sepsis screen positive / urosepsis",
-        "confidence": "high",
-        "source_quote": "IV co-amoxiclav 1.2 g given"
-      },
-      {
-        "name": "Hartmann's solution",
-        "dose": "500 mL",
-        "frequency": "stat",
-        "route": "IV",
-        "indication": "Fluid resuscitation",
-        "confidence": "high",
-        "source_quote": "IV fluids 500 mL Hartmann's stat"
       }
     ],
     "allergies": [
-      "none reported by son (unconfirmed)"
+      "not documented"
     ],
     "vitals": {
       "temperature_c": "38.9",
@@ -132,19 +114,10 @@
       "diastolic_bp": "52",
       "spo2_percent": "90",
       "on_supplemental_oxygen": "yes",
-      "consciousness": "voice",
-      "source_quote": "OBSERVATIONS on arrival 02:51\nTemp 38.9 C (tympanic)\nHR 124\nRR 28\nBP 88/52\nSpO2 90% on 6 L/min via face mask\nBM (glucose) 14.2 mmol/L\nAVPU V -- responds to voice only, disoriented to time and place"
+      "consciousness": "confused",
+      "source_quote": "Temp 38.9 C (tympanic) HR 124 RR 28 BP 88/52 SpO2 90% on 6 L/min via face mask AVPU V -- responds to voice only, disoriented to time and place"
     },
     "labs": [
-      {
-        "name": "BM (glucose)",
-        "value": "14.2",
-        "unit": "mmol/L",
-        "reference_range": "not documented",
-        "flag": "unknown",
-        "confidence": "high",
-        "source_quote": "BM (glucose) 14.2 mmol/L"
-      },
       {
         "name": "Lactate",
         "value": "4.8",
@@ -200,21 +173,20 @@
         "source_quote": "Hb 10.8 g/dL (13.0-17.0) Low"
       }
     ],
-    "summary": "Theo Bergstrom, a 74-year-old male with a history of CKD stage 3b, prostate cancer, and recurrent UTIs, presented to the ED via ambulance with confusion, slurred speech, and reduced oral intake. Initial observations demonstrated high fever (38.9\u00b0C), tachycardia (124 bpm), tachypnea (28/min), hypotension (88/52 mmHg), hypoxia (90% on 6 L/min O2), altered mental state (AVPU V), poor peripheral perfusion, and severe oliguria (15 mL/hr). Bedside blood testing revealed critical hyperlactatemia (4.8 mmol/L), severe leukocytosis (WBC 17.2 x10^9/L), elevated CRP (187 mg/L), and acute renal failure (Creatinine 218 umol/L). Sepsis Six protocols have been initiated, medical registrar and critical care outreach teams have been alerted, and CT imaging has been requested.",
-    "clinical_reasoning": "The patient's presentation and constellation of vital signs and laboratory findings are consistent with septic shock, most likely secondary to urosepsis given his history of recurrent UTIs and prostate cancer. Major drivers of clinical concern include systemic hypotension (BP 88/52 mmHg), tachycardia (124 bpm), tachypnea (28/min), fever (38.9\u00b0C), hypoxia on supplemental oxygen, altered mental state (AVPU V), delayed capillary refill (4 seconds), oliguria (15 mL output in first hour), critically elevated lactate (4.8 mmol/L), severe inflammatory markers (WBC 17.2 x10^9/L, CRP 187 mg/L), and acute renal injury (Creatinine 218 umol/L, Urea 19.4 mmol/L) on background CKD.",
+    "summary": "Mr. Bergstrom, 74, presented with confusion and lethargy following two days of reduced oral intake. Clinical findings include pyrexia, hypotension, tachycardia, tachypnea, and significant hypoxia requiring 6 L/min oxygen. Initial labs reveal acute-on-chronic kidney injury, elevated inflammatory markers, and a critical lactate. He is currently being treated for suspected urosepsis per the Sepsis Six protocol.",
+    "clinical_reasoning": "The patient is in septic shock, evidenced by hypotension (88/52), tachycardia (124), tachypnea (28), and elevated lactate (4.8). The history of recurrent UTIs and elevated CRP/WBC strongly supports the clinician's suspicion of urosepsis. The patient also demonstrates significant organ dysfunction (AKI indicated by elevated creatinine/urea and low urine output of 15 mL/hr).",
     "recommended_next_steps": [
-      "Immediate bedside evaluation by the bleeped medical registrar and critical care outreach team.",
-      "Re-evaluate hemodynamic response and fluid balance post 500 mL Hartmann's bolus, anticipating requirement for further IV fluid resuscitation or vasopressor support.",
-      "Perform requested CT abdomen/pelvis once stabilized.",
-      "Maintain strict hourly urinary output monitoring via catheter.",
-      "Follow up pending formal laboratory bloods, formal blood cultures, and repeat lactate levels."
+      "Perform immediate medical review by the registrar.",
+      "Monitor urine output closely (catheter in situ).",
+      "Obtain emergent CT abdomen to assess for obstruction or other acute pathology.",
+      "Re-evaluate vitals and lactate following fluid resuscitation.",
+      "Obtain formal pharmacy verification of current home medications."
     ],
     "missing_critical_info": [
-      "Medical countersignature on the ED triage note.",
-      "Formal laboratory blood results (current values are provisional bedside bloods).",
-      "CT abdomen results (requested but not yet performed).",
-      "Formal verification of home medication list and allergy status (dosette box brought by son, unconfirmed with pharmacy).",
-      "Baseline renal function / baseline creatinine values for acute vs chronic comparison."
+      "Signed medical review",
+      "Formal lab results (pending)",
+      "Documented allergy status",
+      "Current imaging (CT requested but not performed)"
     ]
   },
   "triage": {
@@ -226,7 +198,8 @@
       "Marked tachypnoea: Respiratory rate 28/min",
       "Significant hypoxaemia: SpO2 90%",
       "Hypotension: Systolic BP 88 mmHg",
-      "New confusion or reduced GCS: Consciousness voice"
+      "New confusion or reduced GCS: Consciousness confused",
+      "No allergy history documented."
     ],
     "unscored_parameters": []
   }

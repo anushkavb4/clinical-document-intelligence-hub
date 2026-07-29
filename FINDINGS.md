@@ -175,6 +175,42 @@ traceable" cannot trade quote fidelity for latency.
 
 ---
 
+## The comparison found a false alarm in the triage layer
+
+Building the two-document view surfaced a bug nothing else had. Diffing the ED
+triage note against the same patient's discharge summary, one flag refused to
+clear:
+
+```
+persisting: No allergy history documented.
+```
+
+The discharge summary says, in as many words: *"No known drug allergies.
+Confirmed against primary care record and with the patient directly."* The gap
+had been closed, and the tool was still reporting it.
+
+The model was not at fault — it had followed the schema exactly:
+
+| Document | `allergies` |
+| --- | --- |
+| ED triage note (*"son states none that I know of — not confirmed"*) | `['not documented']` |
+| Discharge summary (*"No known drug allergies. Confirmed…"*) | `[]` |
+
+[schema.py](src/schema.py) promises `"Empty list if none; ['not documented'] if
+not stated."` The triage layer flagged **both**, inverting its own contract and
+treating *confirmed nil allergies* as a safety concern. That is a false alarm on
+precisely the documents that got it right, and false alarms are how flags stop
+being read.
+
+One condition removed, [two tests added](tests/test_triage.py) pinning both
+directions. The flag now reads as **resolved** across the pair — the
+documentation gap raised at triage was closed by discharge, which is exactly
+what a trajectory view is for.
+
+The wider point: this bug survived 18 tests and five sample documents because
+every one of them looked at a single document in isolation. It took a second
+document, of the same patient, to make an inconsistency visible.
+
 ## Two smaller findings, not yet fixed
 
 - `VitalSigns` carries one `source_quote` for eight values, and on one run the

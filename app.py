@@ -14,6 +14,7 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
+from src.compare import compare
 from src.extract import ExtractionError, extract
 from src.ingest import UnsupportedDocument, ingest_bytes, ingest_path
 from src.schema import NOT_DOCUMENTED, ClinicalExtraction, ExtractedValue
@@ -140,6 +141,114 @@ def summary_card(record: ClinicalExtraction, triage: TriageResult) -> None:
             st.markdown(f"- {item}")
 
 
+DIRECTION_ICONS = {"improved": "🟢 ↓", "worsened": "🔴 ↑", "unchanged": "⚪ =", "unclear": "🟡 ?"}
+
+TRAJECTORY_STYLES = {
+    "improved": ("#1b5e20", "#e8f5e9", "Improving"),
+    "worsened": ("#b3261e", "#fce8e6", "Deteriorating"),
+    "unchanged": ("#42474e", "#eceff1", "Unchanged"),
+    "unclear": ("#a8500b", "#fdf0e3", "Unclear"),
+}
+
+
+def change_table(changes, before_label: str, after_label: str) -> None:
+    if not changes:
+        st.caption("Nothing recorded on both documents.")
+        return
+    st.dataframe(
+        pd.DataFrame(
+            [
+                {
+                    "": DIRECTION_ICONS.get(c.direction, ""),
+                    "Parameter": c.label,
+                    before_label: c.before,
+                    after_label: c.after,
+                    "Change": c.detail or "—",
+                }
+                for c in changes
+            ]
+        ),
+        hide_index=True,
+        width="stretch",
+    )
+
+
+def trajectory_view(comparison, before_name: str, after_name: str) -> None:
+    """What changed between two encounters — computed, not narrated."""
+    if not comparison.same_patient:
+        st.error(
+            f"These do not look like the same patient. {comparison.identity_note} "
+            "Comparison suppressed.",
+            icon="🛑",
+        )
+        return
+
+    fg, bg, word = TRAJECTORY_STYLES.get(comparison.trajectory, TRAJECTORY_STYLES["unclear"])
+    before_score = "—" if comparison.news2_before is None else comparison.news2_before
+    after_score = "—" if comparison.news2_after is None else comparison.news2_after
+    st.markdown(
+        f"""
+        <div style="background:{bg};border-left:6px solid {fg};padding:1rem 1.25rem;
+                    border-radius:6px;margin-bottom:1rem;">
+          <div style="color:{fg};font-size:1.35rem;font-weight:700;letter-spacing:.02em;">
+            {word} &nbsp;·&nbsp; NEWS2 {before_score} → {after_score}
+            &nbsp;·&nbsp; {comparison.risk_before} → {comparison.risk_after}
+          </div>
+          <div style="color:#222;margin-top:.35rem;">{comparison.headline}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.caption(f"{comparison.identity_note}  ·  Baseline: {before_name} → Later: {after_name}")
+
+    for flag in comparison.flags_new:
+        st.error(f"New: {flag}", icon="⚠️")
+    for flag in comparison.flags_resolved:
+        st.success(f"Resolved: {flag}", icon="✅")
+    for flag in comparison.flags_persisting:
+        st.warning(f"Still present: {flag}", icon="⏳")
+
+    before_label, after_label = "Baseline", "Later"
+    st.subheader("Vital signs")
+    change_table(comparison.vitals, before_label, after_label)
+
+    st.subheader("Laboratory results")
+    change_table(comparison.labs, before_label, after_label)
+    st.caption(
+        "Direction follows the flag the laboratory itself assigned. A value falling "
+        "while still outside its range reads as unchanged in direction — the number "
+        "moved, the clinical category did not."
+    )
+
+    cols = st.columns(2)
+    with cols[0]:
+        st.subheader("Medications")
+        for name in comparison.medications.added:
+            st.markdown(f"🟢 **started** — {name}")
+        for name in comparison.medications.removed:
+            st.markdown(f"🔴 **stopped** — {name}")
+        for name in comparison.medications.retained:
+            st.markdown(f"⚪ continued — {name}")
+        if not any(
+            [comparison.medications.added, comparison.medications.removed,
+             comparison.medications.retained]
+        ):
+            st.caption("None documented.")
+    with cols[1]:
+        st.subheader("Diagnoses")
+        for name in comparison.diagnoses.added:
+            st.markdown(f"🟢 **new** — {name}")
+        for name in comparison.diagnoses.removed:
+            st.markdown(f"🔴 **no longer listed** — {name}")
+        for name in comparison.diagnoses.retained:
+            st.markdown(f"⚪ ongoing — {name}")
+        if not any(
+            [comparison.diagnoses.added, comparison.diagnoses.removed,
+             comparison.diagnoses.retained]
+        ):
+            st.caption("None documented.")
+
+
 def detail_tables(record: ClinicalExtraction) -> None:
     st.subheader("Diagnoses")
     if record.diagnoses:
@@ -221,45 +330,79 @@ st.caption(
     "Synthetic data; not a medical device."
 )
 
+UPLOAD_TYPES = ["txt", "md", "csv", "pdf", "png", "jpg", "jpeg", "webp", "gif", "tif", "tiff"]
+
 with st.sidebar:
     st.header("Input")
     sample_files = sorted(SAMPLES_DIR.glob("*")) if SAMPLES_DIR.exists() else []
+    sample_names = [f.name for f in sample_files]
     sample_choice = st.selectbox(
         "Sample document",
-        ["— none —"] + [f.name for f in sample_files],
+        ["— none —"] + sample_names,
         help="Synthetic documents bundled with the repo.",
     )
-    upload = st.file_uploader(
-        "…or upload your own",
-        type=["txt", "md", "csv", "pdf", "png", "jpg", "jpeg", "webp", "gif", "tif", "tiff"],
-    )
-    run = st.button("Analyze document", type="primary", width="stretch")
+    upload = st.file_uploader("…or upload your own", type=UPLOAD_TYPES)
 
     st.divider()
+    st.subheader("Compare (optional)")
+    st.caption(
+        "Add an earlier document for the same patient to see what changed "
+        "between the two encounters."
+    )
+    prior_choice = st.selectbox(
+        "Earlier document",
+        ["— none —"] + sample_names,
+        help="The baseline. The document above is treated as the later one.",
+        key="prior_sample",
+    )
+    prior_upload = st.file_uploader("…or upload", type=UPLOAD_TYPES, key="prior_upload")
+
+    st.divider()
+    run = st.button("Analyze", type="primary", width="stretch")
+
     st.caption(
         "Risk scoring uses NEWS2 (Royal College of Physicians), computed "
-        "deterministically in Python — not by the model."
+        "deterministically in Python — not by the model. So is the comparison."
     )
+
+
+def _resolve(uploaded, choice):
+    """Uploaded file wins over the sample dropdown; None if neither is set."""
+    if uploaded is not None:
+        return ingest_bytes(uploaded.getvalue(), uploaded.name)
+    if choice != "— none —":
+        return ingest_path(SAMPLES_DIR / choice)
+    return None
+
+
+def _analyze(doc):
+    result = extract(doc)
+    return result, result.record, score(result.record)
+
 
 if run:
     try:
-        if upload is not None:
-            document = ingest_bytes(upload.getvalue(), upload.name)
-        elif sample_choice != "— none —":
-            document = ingest_path(SAMPLES_DIR / sample_choice)
-        else:
-            st.warning("Pick a sample or upload a document first.")
-            st.stop()
+        document = _resolve(upload, sample_choice)
+        prior_document = _resolve(prior_upload, prior_choice)
     except UnsupportedDocument as exc:
         st.error(str(exc))
         st.stop()
 
-    if document.note:
-        st.info(document.note)
+    if document is None:
+        st.warning("Pick a sample or upload a document first.")
+        st.stop()
+
+    for note in (d.note for d in (prior_document, document) if d and d.note):
+        st.info(note)
 
     try:
         with st.spinner(f"Reading {document.filename}…"):
-            result = extract(document)
+            result, record, triage = _analyze(document)
+        prior_bundle = None
+        if prior_document is not None:
+            with st.spinner(f"Reading {prior_document.filename}…"):
+                prior_result, prior_record, prior_triage = _analyze(prior_document)
+            prior_bundle = (prior_document, prior_result, prior_record, prior_triage)
     except ExtractionError as exc:
         st.error(str(exc))
         st.stop()
@@ -267,17 +410,33 @@ if run:
         st.error(f"{exc.__class__.__name__}: {exc}")
         st.stop()
 
-    record = result.record
-    triage = score(record)
-
     st.session_state["last"] = (document, result, record, triage)
+    st.session_state["prior"] = prior_bundle
 
 if "last" in st.session_state:
     document, result, record, triage = st.session_state["last"]
+    prior_bundle = st.session_state.get("prior")
 
-    card_tab, detail_tab, score_tab, source_tab, json_tab = st.tabs(
-        ["Summary card", "Extracted detail", "Risk score", "Source", "JSON"]
-    )
+    tab_names = ["Summary card", "Extracted detail", "Risk score", "Source", "JSON"]
+    if prior_bundle:
+        tab_names.insert(1, "Trajectory")
+    tabs = st.tabs(tab_names)
+    tab = dict(zip(tab_names, tabs))
+
+    if prior_bundle:
+        prior_document, prior_result, prior_record, prior_triage = prior_bundle
+        with tab["Trajectory"]:
+            trajectory_view(
+                compare(prior_record, prior_triage, record, triage),
+                prior_document.filename,
+                document.filename,
+            )
+
+    card_tab = tab["Summary card"]
+    detail_tab = tab["Extracted detail"]
+    score_tab = tab["Risk score"]
+    source_tab = tab["Source"]
+    json_tab = tab["JSON"]
 
     with card_tab:
         summary_card(record, triage)

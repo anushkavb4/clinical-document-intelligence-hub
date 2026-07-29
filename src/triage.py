@@ -222,9 +222,12 @@ def _critical_flags(extraction: ClinicalExtraction, components: list[ScoreCompon
         if component.points == 3 and component.note:
             flags.append(f"{component.note}: {component.parameter} {component.reading}")
 
-    if not extraction.allergies:
-        flags.append("No allergy history documented.")
-    elif any(a.strip().lower() == NOT_DOCUMENTED for a in extraction.allergies):
+    # The schema draws a distinction worth honouring here: an empty list means
+    # the document positively records no allergies, while the literal
+    # NOT_DOCUMENTED means nobody asked. Only the second is a gap. Flagging
+    # both treats "confirmed nil allergies" as a safety concern, which is a
+    # false alarm on exactly the documents that got it right.
+    if any(a.strip().lower() == NOT_DOCUMENTED for a in extraction.allergies):
         flags.append("No allergy history documented.")
 
     low_confidence = [

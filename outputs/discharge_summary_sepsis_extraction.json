@@ -29,34 +29,34 @@
       "source_quote": "Admitted: 03/11/2026      Discharged: 09/11/2026"
     },
     "chief_complaint": {
-      "value": "Productive cough, rigors and increasing breathlessness",
+      "value": "productive cough, rigors, increasing breathlessness, and new confusion",
       "confidence": "high",
-      "source_quote": "three days of productive cough, rigors and increasing breathlessness"
+      "source_quote": "three days of productive cough, rigors and increasing breathlessness. Family reported she had become \"vague and muddled\" on the morning of admission"
     },
     "diagnoses": [
       {
         "description": "Community-acquired pneumonia, right lower lobe",
         "status": "active",
         "confidence": "high",
-        "source_quote": "1. Community-acquired pneumonia, right lower lobe -- resolving"
+        "source_quote": "Community-acquired pneumonia, right lower lobe -- resolving"
       },
       {
-        "description": "Sepsis secondary to right lower lobe pneumonia",
+        "description": "Sepsis secondary to pneumonia",
         "status": "resolved",
         "confidence": "high",
-        "source_quote": "2. Sepsis secondary to (1) -- resolved"
+        "source_quote": "Sepsis secondary to (1) -- resolved"
       },
       {
         "description": "Type 2 diabetes mellitus",
         "status": "active",
         "confidence": "high",
-        "source_quote": "3. Type 2 diabetes mellitus -- ongoing, stable"
+        "source_quote": "Type 2 diabetes mellitus -- ongoing, stable"
       },
       {
         "description": "Hypertension",
         "status": "active",
         "confidence": "high",
-        "source_quote": "4. Hypertension -- ongoing, stable"
+        "source_quote": "Hypertension -- ongoing, stable"
       }
     ],
     "medications": [
@@ -65,7 +65,7 @@
         "dose": "875/125 mg",
         "frequency": "BD",
         "route": "PO",
-        "indication": "complete 2 further days",
+        "indication": "pneumonia completion",
         "confidence": "high",
         "source_quote": "Amoxicillin-clavulanate 875/125 mg  PO  BD   -- complete 2 further days"
       },
@@ -74,7 +74,7 @@
         "dose": "1000 mg",
         "frequency": "BD",
         "route": "PO",
-        "indication": "ongoing, for T2DM",
+        "indication": "T2DM",
         "confidence": "high",
         "source_quote": "Metformin              1000 mg      PO  BD   -- ongoing, for T2DM"
       },
@@ -83,7 +83,7 @@
         "dose": "5 mg",
         "frequency": "OD",
         "route": "PO",
-        "indication": "ongoing, for hypertension",
+        "indication": "hypertension",
         "confidence": "high",
         "source_quote": "Ramipril               5 mg         PO  OD   -- ongoing, for hypertension"
       },
@@ -98,7 +98,7 @@
       }
     ],
     "allergies": [
-      "Penicillin (documented as rash in childhood)"
+      "Penicillin (rash in childhood)"
     ],
     "vitals": {
       "temperature_c": "37.4",
@@ -140,24 +140,6 @@
         "source_quote": "Creatinine     94    umol/L    (45-90)        High"
       },
       {
-        "name": "Sodium",
-        "value": "138",
-        "unit": "mmol/L",
-        "reference_range": "135-145",
-        "flag": "normal",
-        "confidence": "high",
-        "source_quote": "Sodium         138   mmol/L    (135-145)      Normal"
-      },
-      {
-        "name": "Potassium",
-        "value": "4.1",
-        "unit": "mmol/L",
-        "reference_range": "3.5-5.0",
-        "flag": "normal",
-        "confidence": "high",
-        "source_quote": "Potassium      4.1   mmol/L    (3.5-5.0)      Normal"
-      },
-      {
         "name": "Haemoglobin",
         "value": "11.9",
         "unit": "g/dL",
@@ -176,18 +158,16 @@
         "source_quote": "HbA1c          7.8   %         (<7.0)         High"
       }
     ],
-    "summary": "A 68-year-old female was admitted on 03/11/2026 with right lower lobe Streptococcus pneumoniae pneumonia and secondary sepsis, presenting with productive cough, rigors, dyspnea, and new acute confusion. She was managed in the high dependency unit with IV ceftriaxone, azithromycin, fluid resuscitation, and oxygen support, successfully transitioning to oral amoxicillin-clavulanate. By discharge on 09/11/2026, her mental status and oxygenation fully normalized on room air, and inflammatory markers improved significantly (CRP decreased from 288 to 41 mg/L). She is discharged home to complete 2 remaining days of oral antibiotics with outpatient primary care and specialist follow-up.",
-    "clinical_reasoning": "The patient exhibits significant clinical improvement and stabilization following treatment for S. pneumoniae bacteremic pneumonia and sepsis. Reassuring findings include full resolution of acute encephalopathy/confusion, normal vital signs on room air (SpO2 96%, RR 18, HR 88, Temp 37.4 C), normalization of leukocytosis (WBC 9.8 x10^9/L), and dramatic reduction in inflammatory marker CRP (from 288 to 41 mg/L). Areas requiring ongoing post-discharge monitoring include residual elevated CRP (41 mg/L), mild renal impairment (creatinine 94 umol/L), sub-optimal glycemic control (HbA1c 7.8%), mild anemia (Hb 11.9 g/dL), and clarification of penicillin allergy status after uneventful beta-lactam therapy during admission.",
+    "summary": "This 68-year-old female was admitted with Streptococcus pneumoniae pneumonia and associated sepsis, manifesting with confusion and respiratory distress. She was treated with IV antibiotics and supportive care, showing significant clinical and laboratory improvement. She is now hemodynamically stable, off oxygen, and clinically alert. She has been transitioned to oral antibiotics to complete her course and is discharged home with follow-up for renal function, inflammatory markers, and diabetes management.",
+    "clinical_reasoning": "The patient shows objective improvement in vital signs and resolution of confusion. The WBC has normalized, and the CRP is trending down significantly from its admission peak. Concerns remain for mild residual renal impairment (Creatinine 94) and suboptimal glycemic control (HbA1c 7.8%). The patient tolerated penicillins during this admission despite a history of a childhood rash, suggesting the allergy may be non-IgE mediated or outgrown.",
     "recommended_next_steps": [
-      "Complete remaining 2 days of oral amoxicillin-clavulanate 875/125 mg twice daily.",
-      "Schedule GP review within 7 days for repeat CRP and renal function panel.",
-      "Schedule diabetes nurse review regarding glycemic management for HbA1c of 7.8%.",
-      "Obtain repeat chest radiograph in 6 weeks to confirm radiological resolution of right lower lobe consolidation.",
-      "Refer to allergy clinic to formally assess and potentially de-label penicillin allergy."
+      "Complete remaining 2 days of Amoxicillin-clavulanate.",
+      "GP review within 7 days for repeat CRP and renal function assessment.",
+      "Schedule diabetes nurse review for glycemic optimization (HbA1c 7.8%).",
+      "Refer to allergy clinic for formal evaluation of penicillin allergy.",
+      "Repeat chest radiograph in 6 weeks to confirm radiological resolution."
     ],
-    "missing_critical_info": [
-      "Baseline renal function (creatinine) to differentiate mild chronic kidney disease from resolving acute kidney injury."
-    ]
+    "missing_critical_info": []
   },
   "triage": {
     "risk_level": "ROUTINE",

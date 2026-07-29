@@ -1,0 +1,201 @@
+{
+  "extraction": {
+    "document_type": "discharge_summary",
+    "patient": {
+      "name": {
+        "value": "T. Bergstrom (Theo)",
+        "confidence": "high",
+        "source_quote": "Pt: T. Bergstrom (Theo)"
+      },
+      "age": {
+        "value": "74",
+        "confidence": "high",
+        "source_quote": "74 yrs"
+      },
+      "sex": {
+        "value": "M",
+        "confidence": "high",
+        "source_quote": "M"
+      },
+      "mrn": {
+        "value": "NG 88213-4",
+        "confidence": "high",
+        "source_quote": "Hosp no. NG 88213-4"
+      }
+    },
+    "encounter_date": {
+      "value": "22-Jan-2026",
+      "confidence": "high",
+      "source_quote": "Admitted:   22-Jan-2026"
+    },
+    "chief_complaint": {
+      "value": "acute confusion and reduced oral intake",
+      "confidence": "high",
+      "source_quote": "Presented via ambulance with acute confusion and reduced oral intake"
+    },
+    "diagnoses": [
+      {
+        "description": "Urosepsis secondary to E. coli urinary tract infection",
+        "status": "resolved",
+        "confidence": "high",
+        "source_quote": "Urosepsis secondary to E. coli urinary tract infection -- resolved"
+      },
+      {
+        "description": "Acute kidney injury on chronic kidney disease stage 3b",
+        "status": "resolved",
+        "confidence": "high",
+        "source_quote": "Acute kidney injury on chronic kidney disease stage 3b -- resolving"
+      },
+      {
+        "description": "Atrial fibrillation",
+        "status": "active",
+        "confidence": "high",
+        "source_quote": "Atrial fibrillation -- rate controlled, ongoing"
+      },
+      {
+        "description": "Prostate carcinoma",
+        "status": "active",
+        "confidence": "high",
+        "source_quote": "Prostate carcinoma -- on active surveillance, ongoing"
+      },
+      {
+        "description": "Hospital-acquired delirium",
+        "status": "resolved",
+        "confidence": "high",
+        "source_quote": "Hospital-acquired delirium -- resolved"
+      }
+    ],
+    "medications": [
+      {
+        "name": "Apixaban",
+        "dose": "5 mg",
+        "frequency": "BD",
+        "route": "not documented",
+        "indication": "AF",
+        "confidence": "high",
+        "source_quote": "Apixaban        5 mg     BD      -- unchanged, for AF"
+      },
+      {
+        "name": "Bisoprolol",
+        "dose": "2.5 mg",
+        "frequency": "OD",
+        "route": "not documented",
+        "indication": "AF",
+        "confidence": "high",
+        "source_quote": "Bisoprolol      2.5 mg   OD      -- unchanged, for AF"
+      },
+      {
+        "name": "Furosemide",
+        "dose": "20 mg",
+        "frequency": "OD",
+        "route": "not documented",
+        "indication": "not documented",
+        "confidence": "high",
+        "source_quote": "Furosemide      20 mg    OD      -- REDUCED from 40 mg, review in 2 weeks"
+      },
+      {
+        "name": "Tamsulosin",
+        "dose": "400 mcg",
+        "frequency": "OD",
+        "route": "not documented",
+        "indication": "not documented",
+        "confidence": "high",
+        "source_quote": "Tamsulosin      400 mcg  OD      -- unchanged"
+      },
+      {
+        "name": "Co-amoxiclav",
+        "dose": "625 mg",
+        "frequency": "TDS",
+        "route": "not documented",
+        "indication": "not documented",
+        "confidence": "high",
+        "source_quote": "Co-amoxiclav    625 mg   TDS     -- NEW, 3 days remaining to complete course"
+      }
+    ],
+    "allergies": [
+      "No known drug allergies"
+    ],
+    "vitals": {
+      "temperature_c": "36.8",
+      "heart_rate_bpm": "78",
+      "respiratory_rate": "17",
+      "systolic_bp": "128",
+      "diastolic_bp": "74",
+      "spo2_percent": "96",
+      "on_supplemental_oxygen": "no",
+      "consciousness": "alert",
+      "source_quote": "Temp        36.8 C (tympanic)\n    HR          78\n    RR          17\n    BP          128/74\n    SpO2        96% on room air\n    AVPU        A -- alert, oriented to time, place and person"
+    },
+    "labs": [
+      {
+        "name": "Lactate",
+        "value": "1.2",
+        "unit": "mmol/L",
+        "reference_range": "0.5-2.2",
+        "flag": "normal",
+        "confidence": "high",
+        "source_quote": "Lactate       1.2  mmol/L   (0.5-2.2)   Normal"
+      },
+      {
+        "name": "Creatinine",
+        "value": "142",
+        "unit": "umol/L",
+        "reference_range": "60-110",
+        "flag": "high",
+        "confidence": "high",
+        "source_quote": "Creatinine    142  umol/L   (60-110)    High"
+      },
+      {
+        "name": "Urea",
+        "value": "9.8",
+        "unit": "mmol/L",
+        "reference_range": "2.5-7.8",
+        "flag": "high",
+        "confidence": "high",
+        "source_quote": "Urea          9.8  mmol/L   (2.5-7.8)   High"
+      },
+      {
+        "name": "CRP",
+        "value": "14",
+        "unit": "mg/L",
+        "reference_range": "<5",
+        "flag": "high",
+        "confidence": "high",
+        "source_quote": "CRP           14   mg/L     (<5)        High"
+      },
+      {
+        "name": "WBC",
+        "value": "8.1",
+        "unit": "x10^9/L",
+        "reference_range": "4.0-11.0",
+        "flag": "normal",
+        "confidence": "high",
+        "source_quote": "WBC           8.1  x10^9/L  (4.0-11.0)  Normal"
+      },
+      {
+        "name": "Hb",
+        "value": "11.2",
+        "unit": "g/dL",
+        "reference_range": "13.0-17.0",
+        "flag": "low",
+        "confidence": "high",
+        "source_quote": "Hb            11.2 g/dL     (13.0-17.0) Low"
+      }
+    ],
+    "summary": "Mr. Bergstrom, a 74-year-old male with CKD, AF, and prostate cancer, was admitted with urosepsis and acute confusion. He was treated with IV co-amoxiclav for a confirmed E. coli UTI and recovered fully with resolution of confusion and improvement in renal function. He is discharged on oral antibiotics and a reduced dose of furosemide. Follow-up is arranged with primary care and renal services.",
+    "clinical_reasoning": "The patient's acute presentation was driven by sepsis and acute kidney injury, both of which have shown clinical and laboratory improvement. The creatinine level of 142 umol/L, while technically 'high' relative to the reference range, is an improvement from the patient's baseline of 168 umol/L, supporting the resolution of the AKI. Continued monitoring of renal function and diuretic titration is warranted given his underlying CKD.",
+    "recommended_next_steps": [
+      "Complete 3-day remaining course of co-amoxiclav.",
+      "GP review of furosemide dose in 2 weeks.",
+      "Renal clinic follow-up in 6 weeks with repeat U&E tests."
+    ],
+    "missing_critical_info": []
+  },
+  "triage": {
+    "risk_level": "ROUTINE",
+    "news2_total": 0,
+    "response": "Routine monitoring per ward policy.",
+    "critical_flags": [],
+    "unscored_parameters": []
+  }
+}

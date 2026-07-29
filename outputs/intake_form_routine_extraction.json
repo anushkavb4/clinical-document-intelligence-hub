@@ -5,7 +5,7 @@
       "name": {
         "value": "Amara J. Villanueva",
         "confidence": "high",
-        "source_quote": "Patient name ......... Amara J. Villanueva"
+        "source_quote": "Amara J. Villanueva"
       },
       "age": {
         "value": "34",
@@ -26,17 +26,17 @@
     "encounter_date": {
       "value": "05/02/2026",
       "confidence": "high",
-      "source_quote": "completed at front desk, 05/02/2026"
+      "source_quote": "05/02/2026"
     },
     "chief_complaint": {
-      "value": "Recurring headaches, 2-3 per week for about four months.",
+      "value": "Recurring headaches, 2-3 per week for about four months. Usually behind my right eye. Sometimes I feel sick with them.",
       "confidence": "high",
-      "source_quote": "Recurring headaches, 2-3 per week for about four months. Usually behind my\n   right eye. Sometimes I feel sick with them. Over the counter stuff helps a\n   bit but not always."
+      "source_quote": "Recurring headaches, 2-3 per week for about four months. Usually behind my right eye. Sometimes I feel sick with them."
     },
     "diagnoses": [
       {
         "description": "Migraine",
-        "status": "suspected",
+        "status": "active",
         "confidence": "high",
         "source_quote": "Migraine (diagnosed age 19, \"went away for years\")"
       },
@@ -51,7 +51,7 @@
       {
         "name": "Ibuprofen",
         "dose": "400 mg",
-        "frequency": "as needed, roughly 3x/week",
+        "frequency": "as needed for headache, roughly 3x/week",
         "route": "not documented",
         "indication": "headache",
         "confidence": "high",
@@ -63,7 +63,7 @@
         "frequency": "daily",
         "route": "not documented",
         "indication": "not documented",
-        "confidence": "high",
+        "confidence": "medium",
         "source_quote": "Combined oral contraceptive (patient unsure of brand name -- \"the pink packet\") -- daily"
       },
       {
@@ -77,7 +77,7 @@
       }
     ],
     "allergies": [
-      "Sulfa drugs"
+      "Sulfa drugs (hives)"
     ],
     "vitals": {
       "temperature_c": "36.9",
@@ -91,21 +91,17 @@
       "source_quote": "Temperature ......... 98.4 F\n  Blood pressure ...... 122/78\n  Pulse ............... 72\n  Respirations ........ 16\n  O2 saturation ....... 99% (room air)\n  Patient alert and oriented."
     },
     "labs": [],
-    "summary": "A 34-year-old female presents for a new patient intake reporting a four-month history of recurring right peri-orbital headaches accompanied by occasional nausea. She has a prior history of migraine diagnosed at age 19 and anxiety. Intake vital signs were within normal limits. The intake form remains unreviewed and unsigned by a clinician.",
-    "clinical_reasoning": "The patient's report of unilateral right peri-orbital pain, nausea, and past history of migraine diagnosed at age 19 strongly aligns with a recurrence of migraine headaches. Reassuring factors include normal vital signs (BP 122/78, HR 72, SpO2 99%) and negative responses to major focal neurological red flags (no weakness, numbness, or sudden onset). However, she reports headaches waking her up sometimes, which warrants clinical attention. Additionally, she takes a combined oral contraceptive; assessing for the presence of migraine aura is important due to the cerebrovascular risk considerations associated with estrogen-containing contraceptives.",
+    "summary": "Amara J. Villanueva, a 34-year-old female, presents for evaluation of recurrent headaches occurring 2-3 times per week over the past four months. The headaches are localized behind the right eye and associated with nausea. The patient has a history of migraine and reports current use of daily oral contraceptives, Vitamin D, and as-needed Ibuprofen. Vital signs are within normal limits.",
+    "clinical_reasoning": "The patient's clinical presentation of unilateral headache associated with nausea is consistent with her known history of migraine. Reassurance is provided by the absence of red flags (no vision loss, no sudden onset, no fever or nuchal rigidity). However, the patient notes that headaches occasionally occur upon waking, which warrants clinician investigation during the physical exam to rule out secondary causes. The documentation indicates that the form has not yet been reviewed or signed by a clinician.",
     "recommended_next_steps": [
-      "Perform a focused neurological examination during the clinician evaluation.",
-      "Evaluate for the presence or absence of focal neurological symptoms or aura (critical for safety regarding combined oral contraceptive use).",
-      "Identify the exact brand and formulation of the patient's oral contraceptive pill.",
-      "Review Ibuprofen usage frequency to monitor for and prevent medication overuse headache.",
-      "Initiate a standardized headache diary to track triggers, onset times, duration, and response to treatment.",
-      "Clinician to review, complete, and sign the intake form."
+      "Clinician review and signature of the intake form.",
+      "Physical exam focusing on neurological assessment to evaluate headache etiology.",
+      "Discuss migraine management strategies and potential triggers (e.g., sleep hygiene, screen time)."
     ],
     "missing_critical_info": [
-      "Clinician review and signature on the intake form.",
-      "Specific brand name, active ingredients, and dosage of the combined oral contraceptive pill.",
-      "Presence or absence of migraine aura symptoms.",
-      "Formal neurological physical examination findings."
+      "Clinician signature/verification of the intake form.",
+      "Verification of specific oral contraceptive brand.",
+      "Neurological physical examination results."
     ]
   },
   "triage": {

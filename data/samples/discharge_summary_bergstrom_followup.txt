@@ -1,0 +1,69 @@
+*** SYNTHETIC RECORD -- NOT A REAL PATIENT ***
+
+NORTHGATE REGIONAL -- DISCHARGE SUMMARY
+Ward 7B (Acute Medical Unit)
+
+Pt: T. Bergstrom (Theo), M, 74 yrs.  Hosp no. NG 88213-4
+Admitted:   22-Jan-2026 02:47  (via ED, ambulance)
+Discharged: 29-Jan-2026 14:20
+Length of stay: 7 days
+Consultant: Dr. R. Villalobos          Prepared by: Dr. F. Okonjo, FY2
+
+REASON FOR ADMISSION
+Presented via ambulance with acute confusion and reduced oral intake on a
+background of CKD stage 3b, AF and prostate cancer. Septic on arrival --
+NEWS2 17, lactate 4.8, AVPU V.
+
+DIAGNOSES AT DISCHARGE
+  1. Urosepsis secondary to E. coli urinary tract infection -- resolved
+  2. Acute kidney injury on chronic kidney disease stage 3b -- resolving
+  3. Atrial fibrillation -- rate controlled, ongoing
+  4. Prostate carcinoma -- on active surveillance, ongoing
+  5. Hospital-acquired delirium -- resolved
+
+HOSPITAL COURSE
+Admitted directly to AMU after Sepsis Six in ED. Blood cultures grew
+Escherichia coli sensitive to co-amoxiclav; urine culture confirmed the same
+organism. Continued IV co-amoxiclav for 5 days, switched to oral on day 6.
+Required 4 L/min oxygen for the first 48 hours, weaned to room air by day 3.
+Fluid resuscitation continued with careful monitoring given CKD; no dialysis
+required. Confusion resolved fully by day 4 -- son confirms he is back to his
+usual self. Furosemide was held on admission due to AKI and restarted at a
+reduced dose on day 5. Mobilised independently with a frame by day 6.
+CT abdomen/pelvis performed day 2: no obstruction, no collection.
+
+OBSERVATIONS at discharge, 29-Jan-2026 09:30
+    Temp        36.8 C (tympanic)
+    HR          78
+    RR          17
+    BP          128/74
+    SpO2        96% on room air
+    AVPU        A -- alert, oriented to time, place and person
+
+DISCHARGE BLOODS (29-Jan-2026 07:15, formal lab)
+    Lactate       1.2  mmol/L   (0.5-2.2)   Normal
+    Creatinine    142  umol/L   (60-110)    High
+    Urea          9.8  mmol/L   (2.5-7.8)   High
+    CRP           14   mg/L     (<5)        High
+    WBC           8.1  x10^9/L  (4.0-11.0)  Normal
+    Hb            11.2 g/dL     (13.0-17.0) Low
+
+Baseline creatinine from primary care record (Nov 2025): 168 umol/L.
+Current value is below baseline; AKI considered resolved.
+
+DISCHARGE MEDICATIONS
+    Apixaban        5 mg     BD      -- unchanged, for AF
+    Bisoprolol      2.5 mg   OD      -- unchanged, for AF
+    Furosemide      20 mg    OD      -- REDUCED from 40 mg, review in 2 weeks
+    Tamsulosin      400 mcg  OD      -- unchanged
+    Co-amoxiclav    625 mg   TDS     -- NEW, 3 days remaining to complete course
+
+ALLERGIES: No known drug allergies. Confirmed against primary care record and
+with the patient directly on 26-Jan-2026 (previously unconfirmed at triage).
+
+FOLLOW-UP
+  - Renal clinic, 6 weeks, with repeat U&E
+  - GP to review furosemide dose in 2 weeks
+  - Urology to continue active surveillance as previously planned
+
+Note countersigned by: Dr. R. Villalobos, Consultant Physician, 29-Jan-2026.

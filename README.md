@@ -18,7 +18,8 @@ traceable to the sentence it came from.
 | **1. Ingest** | Text passes through; PDFs and images become raw bytes plus a MIME type, read natively by the model. No local OCR step, so scanned documents take the same path as digital ones. | [src/ingest.py](src/ingest.py) |
 | **2. Extract** | **One** Gemini call, constrained to the schema by the API's structured-output mode and re-validated by Pydantic on the way in — no JSON parsing, no repair loop. | [src/extract.py](src/extract.py), [src/schema.py](src/schema.py) |
 | **3. Score** | NEWS2 computed in plain Python from the extracted vitals, plus critical-lab and missing-data flags. | [src/triage.py](src/triage.py) |
-| **4. Present** | Summary card, extracted-detail tables, score breakdown, source text, JSON export. | [app.py](app.py) |
+| **4. Compare** | Optional second document for the same patient, diffed deterministically — vitals by NEWS2 points, labs by the flag the lab itself assigned. | [src/compare.py](src/compare.py) |
+| **5. Present** | Summary card, trajectory view, extracted-detail tables, score breakdown, source text, JSON export. | [app.py](app.py) |
 
 **The model extracts; Python decides.** The risk flag is NEWS2 (Royal College of
 Physicians) implemented as ordinary code, so a clinician can be shown which
@@ -54,7 +55,7 @@ A Gemini API key is free at [aistudio.google.com/apikey](https://aistudio.google
 — no card required. The free tier caps requests per minute, so the extraction
 call retries `429` and transient `5xx`, and if the API asks for a longer wait
 than it will sit through it stops rather than spending further quota. Tests need
-no API key: `pytest tests -q` (31 passing).
+no API key: `pytest tests -q` (59 passing).
 
 ## Example
 
@@ -106,6 +107,38 @@ survived extraction instead of being flattened into a clean-looking value.
 
 Full JSON for every sample is committed under [outputs/](outputs/).
 
+### Comparing two encounters
+
+Load the same patient's discharge summary as a second document and the app adds
+a **Trajectory** view. Same patient, seven days later:
+
+```
+IMPROVING · NEWS2 17 → 0 · HIGH → ROUTINE
+Matched on MRN NG 88213-4.
+
+Respiratory rate  28/min → 17/min     improved   NEWS2 3 → 0
+SpO2              90%    → 96%        improved   NEWS2 3 → 0
+Systolic BP       88     → 128 mmHg   improved   NEWS2 3 → 0
+Consciousness     voice  → alert      improved   NEWS2 3 → 0
+Lactate           4.8    → 1.2 mmol/L improved   critical → normal
+Creatinine        218    → 142 umol/L unchanged  high → high  (218 → 142)
+
+Resolved: critical lactate · hypotension · tachypnoea · confusion · hypoxaemia
+          · no allergy history documented
+Started:  Co-amoxiclav 625 mg, Furosemide 20 mg    Stopped: Furosemide 40 mg
+```
+
+Nothing here asks a model whether the patient improved. A vital is "improved"
+when it scores fewer NEWS2 points — the same function the risk band uses, so
+the two can never disagree — and a lab follows the flag the laboratory itself
+assigned, which avoids needing a reference-range knowledge base. Creatinine
+falling 218 → 142 while still flagged high reads as *unchanged in direction*,
+because the number moved and the clinical category did not.
+
+**Two documents for different patients are never silently diffed.** Identity is
+matched on MRN, falling back to surname with an explicit warning, and the
+comparison is suppressed outright if neither matches.
+
 ## Status
 
 | | |
@@ -115,19 +148,22 @@ Full JSON for every sample is committed under [outputs/](outputs/).
 | Schema-enforced extraction | done — all 5 samples run end-to-end against the live API |
 | Source quotes | done; **85/85 traced back to the source, 0 fabricated** |
 | Per-field confidence | done, and measured — see [FINDINGS.md](FINDINGS.md) |
-| NEWS2 triage + critical flags | done, 18 tests |
-| Rate-limit / transient-failure handling | done, 11 tests |
-| Streamlit summary card | done |
-| Synthetic dataset | 5 documents covering all four types the brief names — 4 text, 1 generated scan |
+| NEWS2 triage + critical flags | done, 20 tests |
+| Multi-document comparison | done, 26 tests — identity-checked, deterministic |
+| Rate-limit / transient-failure handling | done, 13 tests |
+| Streamlit summary card + trajectory view | done |
+| Synthetic dataset | 6 documents covering all four types the brief names, including one paired encounter |
 | Five-slide deck | done — `Clinical_Document_Intelligence_Hub_deck.pptx` / `.pdf` |
-| Multi-document comparison | not built — the one optional enhancement left |
 | Recorded demo | not started |
 
 ## Assumptions
 
 - Synthetic or publicly available documents only; no proprietary or client data.
-- One document per request. Multi-document comparison and longitudinal views are
-  out of scope for the PoC.
+- Comparison handles two documents at a time. Longitudinal views across a full
+  record are out of scope for the PoC.
+- Comparison matches identity on MRN, falling back to surname. Two people
+  sharing a surname with no MRN on either document would match — the UI says so
+  rather than hiding it.
 - NEWS2 is validated for acutely ill adults. It is not appropriate for
   paediatric or obstetric patients, and the tool does not detect those cases — a
   production version would need to gate on patient category.
@@ -147,9 +183,10 @@ Full JSON for every sample is committed under [outputs/](outputs/).
 │   ├── schema.py                 # Pydantic contract for the structured output
 │   ├── prompts.py                # frozen system prompt
 │   ├── extract.py                # the single schema-enforced model call
-│   └── triage.py                 # NEWS2 + critical flags, deterministic
-├── tests/                        # 31 tests, no API key required
+│   ├── triage.py                 # NEWS2 + critical flags, deterministic
+│   └── compare.py                # two-document diff, deterministic
+├── tests/                        # 59 tests, no API key required
 ├── scripts/make_scanned_sample.py  # renders a text sample as a degraded fax
-├── data/samples/                 # 5 synthetic documents (4 text, 1 scan)
+├── data/samples/                 # 6 synthetic documents (5 text, 1 scan)
 └── outputs/                      # extraction JSON for each sample
 ```
