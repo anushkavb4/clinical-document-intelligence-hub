@@ -13,9 +13,12 @@ venv/
 # Streamlit
 .streamlit/secrets.toml
 
-# Generated artifacts
+# Generated artifacts. The extractions for the bundled samples are committed
+# on purpose: the brief asks for sample input and output, and they are the
+# only record of what the pipeline actually returned.
 outputs/*
 !outputs/.gitkeep
+!outputs/*_extraction.json
 
 # OS / editors
 .DS_Store

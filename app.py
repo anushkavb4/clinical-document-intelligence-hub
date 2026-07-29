@@ -19,7 +19,10 @@ from src.ingest import UnsupportedDocument, ingest_bytes, ingest_path
 from src.schema import NOT_DOCUMENTED, ClinicalExtraction, ExtractedValue
 from src.triage import TriageResult, score
 
-load_dotenv()
+# override=True so editing .env and re-running actually takes effect. Without it
+# python-dotenv leaves an already-set variable alone, and a stale GEMINI_MODEL
+# survives every Streamlit rerun until the process is killed.
+load_dotenv(override=True)
 
 SAMPLES_DIR = Path(__file__).parent / "data" / "samples"
 
@@ -228,7 +231,7 @@ with st.sidebar:
     )
     upload = st.file_uploader(
         "…or upload your own",
-        type=["txt", "md", "csv", "pdf", "png", "jpg", "jpeg", "webp", "gif"],
+        type=["txt", "md", "csv", "pdf", "png", "jpg", "jpeg", "webp", "gif", "tif", "tiff"],
     )
     run = st.button("Analyze document", type="primary", width="stretch")
 

@@ -1,0 +1,61 @@
+*** SYNTHETIC RECORD -- NOT A REAL PATIENT ***
+
+MERIDIAN PATHOLOGY SERVICES
+BIOCHEMISTRY & HAEMATOLOGY REPORT                       Page 1 of 1
+
+Patient .............. Desmond O. Achterberg
+DOB / Age / Sex ...... 14-Mar-1957   /   69 y   /   Male
+Patient ID / MRN ..... MP-4471902 / RH-0099314
+Requesting clinician . Dr. K. Nwosu, Renal Outpatients
+Location ............. Riverbend Hospital, Renal Clinic (outpatient)
+Sample collected ..... 18-Feb-2026  09:12
+Sample received ...... 18-Feb-2026  10:04
+Report issued ........ 18-Feb-2026  13:41        Status: FINAL
+Specimen ............. Serum (SST) and whole blood EDTA
+
+Clinical details supplied: "CKD stage 4, review bloods. On ramipril and
+spironolactone. Increasingly tired over 2 weeks."
+
+-------------------------------------------------------------------------
+Test                      Result      Flag     Units        Reference
+-------------------------------------------------------------------------
+UREA & ELECTROLYTES
+  Sodium                  134         L        mmol/L       135 - 145
+  Potassium               6.8         CH***    mmol/L       3.5 - 5.3
+  Chloride                104                  mmol/L       98 - 107
+  Bicarbonate             17          L        mmol/L       22 - 29
+  Urea                    24.6        H        mmol/L       2.5 - 7.8
+  Creatinine              298         H        umol/L       60 - 110
+  eGFR (CKD-EPI)          17                   mL/min/1.73  >= 90
+
+*** CRITICAL RESULT ***
+Potassium 6.8 mmol/L. Telephoned to Dr. K. Nwosu at 13:38 on 18-Feb-2026
+by S. Marchetti, Senior BMS. Read-back confirmed. Haemolysis index normal --
+result is NOT attributable to a haemolysed sample. Repeat specimen advised.
+
+BONE PROFILE
+  Adjusted calcium        2.19        L        mmol/L       2.20 - 2.60
+  Phosphate               1.94        H        mmol/L       0.80 - 1.50
+  Albumin                 34          L        g/L          35 - 50
+
+FULL BLOOD COUNT
+  Haemoglobin             9.4         L        g/dL         13.0 - 17.0
+  White cell count        7.1                  x10^9/L      4.0 - 11.0
+  Platelets               211                  x10^9/L      150 - 410
+  MCV                     89.2                 fL           83 - 101
+
+-------------------------------------------------------------------------
+
+COMMENTS
+  1. Severe hyperkalaemia. Recommend urgent ECG and clinical assessment.
+     Consider review of ramipril and spironolactone.
+  2. Results consistent with progressive CKD -- eGFR has fallen from 23 to
+     17 mL/min/1.73 since the previous sample of 04-Dec-2025.
+  3. Normocytic anaemia, likely of chronic kidney disease.
+  4. Metabolic acidosis (bicarbonate 17 mmol/L).
+
+No vital signs accompany this specimen. No allergy information was supplied
+on the request form.
+
+Authorised by: Dr. A. Farooqi, FRCPath, Consultant Chemical Pathologist
+Electronically signed 18-Feb-2026 13:41

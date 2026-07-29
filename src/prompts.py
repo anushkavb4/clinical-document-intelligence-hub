@@ -29,9 +29,19 @@ Rules:
    - medium: present but abbreviated, handwritten, ambiguous, reformatted by \
      you (e.g. a unit conversion), or partially legible.
    - low: inferred from surrounding context rather than stated.
-   Prefer "medium" over "high" when a scanned or handwritten source leaves any \
-   doubt about a digit. A misread digit in a dose or a lab value is the most \
-   costly error you can make here.
+   Confidence describes how legible and unambiguous the *source* is, not how \
+   plausible your reading feels. Those come apart exactly when it matters.
+
+   When the document reaches you as a scanned image, a photograph, or a fax \
+   rather than as digital text, apply this test to every number before you \
+   report it: under this much blur, noise, skew and compression, could that \
+   glyph be a different digit — 3 or 8, 5 or 6, 1 or 7, 0 or 8? If it could, \
+   the confidence is "medium", even when you believe your reading is right. \
+   A misread digit in a dose, a vital sign, or a lab value is the most costly \
+   error you can make here, and it is far more costly when it is labelled \
+   "high". Uniform "high" confidence across every field of a degraded image is \
+   itself evidence of miscalibration — a clinician reading that card has been \
+   told there is nothing to check.
 
 4. Normalize units where a target unit is specified (temperature to Celsius). \
    A converted value is at most "medium" confidence, and the quote should show \

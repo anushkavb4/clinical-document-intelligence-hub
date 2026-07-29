@@ -1,0 +1,233 @@
+{
+  "extraction": {
+    "document_type": "triage_note",
+    "patient": {
+      "name": {
+        "value": "T. Bergstrom (Theo)",
+        "confidence": "high",
+        "source_quote": "Pt: T. Bergstrom (Theo)"
+      },
+      "age": {
+        "value": "74",
+        "confidence": "high",
+        "source_quote": "74 yrs"
+      },
+      "sex": {
+        "value": "male",
+        "confidence": "high",
+        "source_quote": "M"
+      },
+      "mrn": {
+        "value": "NG 88213-4",
+        "confidence": "high",
+        "source_quote": "Hosp no. NG 88213-4"
+      }
+    },
+    "encounter_date": {
+      "value": "22-Jan-2026 02:47",
+      "confidence": "high",
+      "source_quote": "Date/Time: 22-Jan-2026 02:47"
+    },
+    "chief_complaint": {
+      "value": "Not himself since yesterday afternoon. Son reports reduced oral intake for ~2 days, then found father slumped in chair this evening, difficult to rouse, speech slurred and confused.",
+      "confidence": "high",
+      "source_quote": "\"Not himself since yesterday afternoon.\" Son reports reduced oral intake for ~2 days, then found father slumped in chair this evening, difficult to rouse, speech slurred and confused."
+    },
+    "diagnoses": [
+      {
+        "description": "Query urosepsis",
+        "status": "suspected",
+        "confidence": "high",
+        "source_quote": "Query urosepsis. Sepsis screen positive."
+      },
+      {
+        "description": "Chronic kidney disease stage 3b",
+        "status": "active",
+        "confidence": "high",
+        "source_quote": "Chronic kidney disease stage 3b"
+      },
+      {
+        "description": "Atrial fibrillation",
+        "status": "active",
+        "confidence": "high",
+        "source_quote": "Atrial fibrillation, on anticoagulation"
+      },
+      {
+        "description": "Prostate cancer",
+        "status": "active",
+        "confidence": "high",
+        "source_quote": "Prostate ca, on active surveillance"
+      },
+      {
+        "description": "Recurrent UTIs",
+        "status": "active",
+        "confidence": "high",
+        "source_quote": "Recurrent UTIs -- three in the last eight months"
+      }
+    ],
+    "medications": [
+      {
+        "name": "Apixaban",
+        "dose": "5 mg",
+        "frequency": "BD",
+        "route": "oral",
+        "indication": "Atrial fibrillation",
+        "confidence": "high",
+        "source_quote": "Apixaban 5 mg BD"
+      },
+      {
+        "name": "Bisoprolol",
+        "dose": "2.5 mg",
+        "frequency": "OD",
+        "route": "oral",
+        "indication": "not documented",
+        "confidence": "high",
+        "source_quote": "Bisoprolol 2.5 mg OD"
+      },
+      {
+        "name": "Furosemide",
+        "dose": "40 mg",
+        "frequency": "OD",
+        "route": "oral",
+        "indication": "not documented",
+        "confidence": "high",
+        "source_quote": "Furosemide 40 mg OD"
+      },
+      {
+        "name": "Tamsulosin",
+        "dose": "400 mcg",
+        "frequency": "OD",
+        "route": "oral",
+        "indication": "Prostate ca / urinary symptoms",
+        "confidence": "high",
+        "source_quote": "Tamsulosin 400 mcg OD"
+      },
+      {
+        "name": "co-amoxiclav",
+        "dose": "1.2 g",
+        "frequency": "stat",
+        "route": "IV",
+        "indication": "Sepsis screen positive / urosepsis",
+        "confidence": "high",
+        "source_quote": "IV co-amoxiclav 1.2 g given"
+      },
+      {
+        "name": "Hartmann's solution",
+        "dose": "500 mL",
+        "frequency": "stat",
+        "route": "IV",
+        "indication": "Fluid resuscitation",
+        "confidence": "high",
+        "source_quote": "IV fluids 500 mL Hartmann's stat"
+      }
+    ],
+    "allergies": [
+      "none reported by son (unconfirmed)"
+    ],
+    "vitals": {
+      "temperature_c": "38.9",
+      "heart_rate_bpm": "124",
+      "respiratory_rate": "28",
+      "systolic_bp": "88",
+      "diastolic_bp": "52",
+      "spo2_percent": "90",
+      "on_supplemental_oxygen": "yes",
+      "consciousness": "voice",
+      "source_quote": "OBSERVATIONS on arrival 02:51\nTemp 38.9 C (tympanic)\nHR 124\nRR 28\nBP 88/52\nSpO2 90% on 6 L/min via face mask\nBM (glucose) 14.2 mmol/L\nAVPU V -- responds to voice only, disoriented to time and place"
+    },
+    "labs": [
+      {
+        "name": "BM (glucose)",
+        "value": "14.2",
+        "unit": "mmol/L",
+        "reference_range": "not documented",
+        "flag": "unknown",
+        "confidence": "high",
+        "source_quote": "BM (glucose) 14.2 mmol/L"
+      },
+      {
+        "name": "Lactate",
+        "value": "4.8",
+        "unit": "mmol/L",
+        "reference_range": "0.5-2.2",
+        "flag": "critical",
+        "confidence": "high",
+        "source_quote": "Lactate 4.8 mmol/L (0.5-2.2) *** CRITICAL ***"
+      },
+      {
+        "name": "Creatinine",
+        "value": "218",
+        "unit": "umol/L",
+        "reference_range": "60-110",
+        "flag": "high",
+        "confidence": "high",
+        "source_quote": "Creatinine 218 umol/L (60-110) High"
+      },
+      {
+        "name": "Urea",
+        "value": "19.4",
+        "unit": "mmol/L",
+        "reference_range": "2.5-7.8",
+        "flag": "high",
+        "confidence": "high",
+        "source_quote": "Urea 19.4 mmol/L (2.5-7.8) High"
+      },
+      {
+        "name": "CRP",
+        "value": "187",
+        "unit": "mg/L",
+        "reference_range": "<5",
+        "flag": "high",
+        "confidence": "high",
+        "source_quote": "CRP 187 mg/L (<5) High"
+      },
+      {
+        "name": "WBC",
+        "value": "17.2",
+        "unit": "x10^9/L",
+        "reference_range": "4.0-11.0",
+        "flag": "high",
+        "confidence": "high",
+        "source_quote": "WBC 17.2 x10^9/L (4.0-11.0) High"
+      },
+      {
+        "name": "Hb",
+        "value": "10.8",
+        "unit": "g/dL",
+        "reference_range": "13.0-17.0",
+        "flag": "low",
+        "confidence": "high",
+        "source_quote": "Hb 10.8 g/dL (13.0-17.0) Low"
+      }
+    ],
+    "summary": "Theo Bergstrom, a 74-year-old male with a history of CKD stage 3b, prostate cancer, and recurrent UTIs, presented to the ED via ambulance with confusion, slurred speech, and reduced oral intake. Initial observations demonstrated high fever (38.9\u00b0C), tachycardia (124 bpm), tachypnea (28/min), hypotension (88/52 mmHg), hypoxia (90% on 6 L/min O2), altered mental state (AVPU V), poor peripheral perfusion, and severe oliguria (15 mL/hr). Bedside blood testing revealed critical hyperlactatemia (4.8 mmol/L), severe leukocytosis (WBC 17.2 x10^9/L), elevated CRP (187 mg/L), and acute renal failure (Creatinine 218 umol/L). Sepsis Six protocols have been initiated, medical registrar and critical care outreach teams have been alerted, and CT imaging has been requested.",
+    "clinical_reasoning": "The patient's presentation and constellation of vital signs and laboratory findings are consistent with septic shock, most likely secondary to urosepsis given his history of recurrent UTIs and prostate cancer. Major drivers of clinical concern include systemic hypotension (BP 88/52 mmHg), tachycardia (124 bpm), tachypnea (28/min), fever (38.9\u00b0C), hypoxia on supplemental oxygen, altered mental state (AVPU V), delayed capillary refill (4 seconds), oliguria (15 mL output in first hour), critically elevated lactate (4.8 mmol/L), severe inflammatory markers (WBC 17.2 x10^9/L, CRP 187 mg/L), and acute renal injury (Creatinine 218 umol/L, Urea 19.4 mmol/L) on background CKD.",
+    "recommended_next_steps": [
+      "Immediate bedside evaluation by the bleeped medical registrar and critical care outreach team.",
+      "Re-evaluate hemodynamic response and fluid balance post 500 mL Hartmann's bolus, anticipating requirement for further IV fluid resuscitation or vasopressor support.",
+      "Perform requested CT abdomen/pelvis once stabilized.",
+      "Maintain strict hourly urinary output monitoring via catheter.",
+      "Follow up pending formal laboratory bloods, formal blood cultures, and repeat lactate levels."
+    ],
+    "missing_critical_info": [
+      "Medical countersignature on the ED triage note.",
+      "Formal laboratory blood results (current values are provisional bedside bloods).",
+      "CT abdomen results (requested but not yet performed).",
+      "Formal verification of home medication list and allergy status (dosette box brought by son, unconfirmed with pharmacy).",
+      "Baseline renal function / baseline creatinine values for acute vs chronic comparison."
+    ]
+  },
+  "triage": {
+    "risk_level": "HIGH",
+    "news2_total": 17,
+    "response": "Emergency assessment by a critical care team. Continuous monitoring.",
+    "critical_flags": [
+      "Critical lab: Lactate 4.8 mmol/L",
+      "Marked tachypnoea: Respiratory rate 28/min",
+      "Significant hypoxaemia: SpO2 90%",
+      "Hypotension: Systolic BP 88 mmHg",
+      "New confusion or reduced GCS: Consciousness voice"
+    ],
+    "unscored_parameters": []
+  }
+}

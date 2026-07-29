@@ -1,8 +1,8 @@
 """Typed contract for everything the model is allowed to return.
 
-Every request forces Claude into this schema, so the UI and the triage rules
-can rely on field names and types instead of parsing prose. Two conventions
-run through the whole schema:
+Every request forces the model into this schema, so the UI and the triage
+rules can rely on field names and types instead of parsing prose. Two
+conventions run through the whole schema:
 
 - No optional fields. Structured outputs require every property to be
   required, so "absent" is expressed as the literal string NOT_DOCUMENTED
@@ -22,12 +22,23 @@ Confidence = Literal["high", "medium", "low"]
 
 DocumentType = Literal[
     "intake_form",
+    "triage_note",
     "discharge_summary",
     "lab_report",
     "physician_note",
     "referral",
     "other",
 ]
+
+DOCUMENT_TYPE_GUIDANCE = (
+    "Classify by what the document *is*, not by which fields it happens to "
+    "contain. 'intake_form' is a form the patient or clerk fills in before an "
+    "encounter; 'triage_note' is written by a nurse or clinician at the point "
+    "of arrival, typically in an emergency or urgent care setting; "
+    "'physician_note' is a clinician's assessment during an episode of care. "
+    "A note recording arrival observations and an initial impression is a "
+    "'triage_note' even though it also captures demographics."
+)
 
 
 class ExtractedValue(BaseModel):
@@ -111,7 +122,7 @@ class Diagnosis(BaseModel):
 class ClinicalExtraction(BaseModel):
     """The full structured output for one clinical document."""
 
-    document_type: DocumentType
+    document_type: DocumentType = Field(description=DOCUMENT_TYPE_GUIDANCE)
     patient: Patient
     encounter_date: ExtractedValue
     chief_complaint: ExtractedValue
@@ -142,3 +153,32 @@ class ClinicalExtraction(BaseModel):
             "would need before acting. Empty list if nothing material is missing."
         )
     )
+
+
+def _inline_refs(node: object, defs: dict) -> object:
+    """Recursively replace every `$ref` with the definition it points at."""
+    if isinstance(node, dict):
+        ref = node.get("$ref")
+        if ref is not None:
+            resolved = _inline_refs(defs[ref.rsplit("/", 1)[-1]], defs)
+            # A sibling `description` on the reference wins over the target's.
+            siblings = {k: v for k, v in node.items() if k != "$ref"}
+            return {**resolved, **siblings}  # type: ignore[dict-item]
+        return {key: _inline_refs(value, defs) for key, value in node.items()}
+    if isinstance(node, list):
+        return [_inline_refs(item, defs) for item in node]
+    return node
+
+
+def response_schema() -> dict:
+    """`ClinicalExtraction` as a JSON Schema with no `$ref` indirection.
+
+    Pydantic hoists every nested model into `$defs` and points at it with a
+    `$ref`. Gemini's structured-output mode documents no support for either
+    keyword, so the references are inlined here rather than left to chance.
+    Safe to recurse: the schema is a tree by construction, and a recursive
+    one could not be expressed in structured output anyway.
+    """
+    schema = ClinicalExtraction.model_json_schema()
+    defs = schema.pop("$defs", {})
+    return _inline_refs(schema, defs)  # type: ignore[return-value]
