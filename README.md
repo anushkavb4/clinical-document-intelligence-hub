@@ -145,8 +145,8 @@ comparison is suppressed outright if neither matches.
 | --- | --- |
 | Ingestion — text / image | done, both exercised live |
 | Ingestion — PDF | implemented; verified once against a real 7-page lab PDF, no PDF in the bundled samples |
-| Schema-enforced extraction | done — all 5 samples run end-to-end against the live API |
-| Source quotes | done; **85/85 traced back to the source, 0 fabricated** |
+| Schema-enforced extraction | done — all 6 samples run end-to-end against the live API |
+| Source quotes | done; **95 audited, 0 containing invented content** |
 | Per-field confidence | done, and measured — see [FINDINGS.md](FINDINGS.md) |
 | NEWS2 triage + critical flags | done, 20 tests |
 | Multi-document comparison | done, 26 tests — identity-checked, deterministic |

@@ -1,7 +1,7 @@
 # Design notes and measured findings
 
 Supporting detail for [README.md](README.md). Everything here was measured
-against the live API on the five bundled samples, not estimated.
+against the live API on the six bundled samples, not estimated.
 
 ---
 
@@ -28,19 +28,27 @@ failure mode that would actually hurt someone here.
 
 ## Provenance check
 
-Across the four text samples, **85 source quotes** were checked against the
+Across the five text samples, **95 source quotes** were checked against the
 documents they claim to come from:
 
 | | |
 | --- | ---: |
-| Exact substring match | 81 |
-| Match after normalising line-wrap whitespace | 4 |
-| **Not found in the source document** | **0** |
+| Exact substring match | 78 |
+| Match after normalising line-wrap whitespace | 16 |
+| Elided an intervening line — every fragment still faithful | 1 |
+| **Containing content absent from the source** | **0** |
 
-No fabricated quotes. The four inexact matches are quotes the model joined
-across a line break in the source, which is why the check normalises whitespace
-before comparing. This check is not decoration — it is what caught the model
-regression described below.
+Nothing was invented. The sixteen inexact matches are quotes the model joined
+across a line break, which is why the check normalises whitespace before
+comparing. The single elision is the `VitalSigns` block quote described below —
+it skipped a line while reading as continuous, so every word of it appears in
+the document but not contiguously.
+
+The distinction matters more than a single pass/fail would suggest: a quote
+that omits something is a weaker audit trail, while a quote that adds something
+is a fabrication. Only the second would undermine the tool, and there are none.
+This check is not decoration — it is what caught the model regression described
+below.
 
 ---
 
@@ -129,7 +137,7 @@ model is. After the change:
 The signal now tracks legibility, and nothing claims `high` on an unreadable
 page. The ladder reproduced exactly (8 → 6 → 0) on a second independent run.
 The fix is targeted rather than blanket caution — clean digital text is still
-105 high / 0 medium across the four text samples, so the change costs nothing
+105 high / 0 medium across the text samples, so the change costs nothing
 where the source is unambiguous.
 
 **One honest caveat.** The signal is reliable at the extremes and noisy in the
@@ -151,10 +159,10 @@ keeping the scoring in Python rather than asking the model for a risk band.
 The free tier's request allowance on `gemini-3.6-flash` is small enough to
 interrupt a demo, so the obvious move was `gemini-3.1-flash-lite`: roughly
 **4× faster** (7 s versus 27 s per document), a far more generous quota, and the
-same NEWS2 decision on all five samples. On the results table it looked like a
+same NEWS2 decision on every sample. On the results table it looked like a
 free win.
 
-The provenance check disagreed. On the same five documents, flash-lite
+The provenance check disagreed. On the same documents, flash-lite
 fabricated **3 of 65 source quotes**. The clearest one:
 
 | | |
